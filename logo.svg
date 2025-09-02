@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
+  <!-- Background -->
+  <rect width="500" height="500" fill="#c8c1d9" />
+  
+  <!-- FM Initials -->
+  <text x="250" y="250" font-family="Arial" font-size="200" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">FM</text>
+  
+  <!-- Amaanah Script -->
+  <text x="250" y="230" font-family="Brush Script MT, cursive" font-size="60" fill="black" text-anchor="middle" dominant-baseline="middle">Amaanah</text>
+  
+  <!-- FRAGRANCES Text -->
+  <text x="250" y="300" font-family="Arial" font-size="20" font-weight="normal" fill="black" text-anchor="middle" dominant-baseline="middle">FRAGRANCES</text>
+  
+  <!-- Border Rectangle -->
+  <rect x="80" y="190" width="340" height="120" stroke="black" stroke-width="2" fill="none" />
+</svg>

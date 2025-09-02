@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
+  <!-- Circle outline -->
+  <circle cx="250" cy="250" r="200" fill="none" stroke="#0a2e1c" stroke-width="8"/>
+  
+  <!-- Amaanah Script -->
+  <path d="M120,250 C150,180 200,150 250,200 C300,250 350,200 380,250" fill="none" stroke="#0a2e1c" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Amaanah text -->
+  <text x="250" y="250" font-family="'Brush Script MT', cursive" font-size="80" fill="#0a2e1c" text-anchor="middle" dominant-baseline="middle">Amaanah</text>
+  
+  <!-- FRAGRANCES text along bottom of circle -->
+  <path id="curve" d="M 100 320 A 150 150 0 0 0 400 320" fill="transparent"/>
+  <text font-family="Arial" font-size="20" fill="#0a2e1c" letter-spacing="5">
+    <textPath href="#curve" startOffset="50%" text-anchor="middle">F R A G R A N C E S</textPath>
+  </text>
+</svg>
