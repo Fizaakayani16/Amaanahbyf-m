@@ -1,18 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Amaanah by F&M - Luxury Perfumes</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("YOUR_EMAILJS_USER_ID"); // Replace with your EmailJS user ID
+        })();
+    </script>
 </head>
 <body>
+    <!-- Cart Button -->
+    <div
+        id="cart-btn"
+        style="position: fixed; top: 20px; right: 20px; z-index: 1000; cursor: pointer"
+    >
+        🛒 <span id="cart-count">0</span>
+    </div>
+    <!-- Cart Modal -->
+    <div
+        id="cart-modal"
+        style="
+            display: none;
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            width: 300px;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            padding: 20px;
+        "
+    >
+        <h3>Your Cart</h3>
+        <ul id="cart-items"></ul>
+        <p id="cart-total"></p>
+        <button onclick="closeCart()">Close</button>
+    </div>
     <header>
         <div class="logo-container">
-            <img src="C:\Users\FIZAA KAYANI\Desktop\Amannah\Website\Black & White Minimalist Signature Personal Brand Logo.png" alt="Amaanah by F&M Logo" class="logo">
+            <img
+                src="images/black-white-logo.png"
+                alt="Amaanah by F&M Logo"
+                class="logo"
+            />
         </div>
         <nav>
             <ul>
@@ -35,19 +76,33 @@
     <section class="products" id="products">
         <h2>Our Signature Collection</h2>
         <div class="product-container">
-            <div class="product">
-                <img src="C:\Users\FIZAA KAYANI\Desktop\Amannah\Website\al ibtehaj.png" alt="Al Ibtehaj Perfume" class="product-image">
+            <div class="product" data-name="Al Ibtehaj" data-price="2250">
+                <img
+                    src="images/al_ibtehaj.png"
+                    alt="Al Ibtehaj Perfume"
+                    class="product-image"
+                />
                 <h3>Al Ibtehaj</h3>
-                <p>A captivating blend of exotic notes that evoke the essence of luxury and sophistication.</p>
-                <p class="price">Rs.1999</p>
-                <a href="#" class="btn">Shop Now</a>
+                <p>
+                    A captivating blend of exotic notes that evoke the essence of
+                    luxury and sophistication.
+                </p>
+                <p class="price">Rs.2250</p>
+                <a href="#" class="btn add-to-cart">Shop Now</a>
             </div>
-            <div class="product">
-                <img src="C:\Users\FIZAA KAYANI\Desktop\Amannah\Website\al lbraaj.png" alt="Al Abraaj Perfume" class="product-image">
+            <div class="product" data-name="Al Abraaj" data-price="2250">
+                <img
+                    src="images/al_abraaj.png"
+                    alt="Al Abraaj Perfume"
+                    class="product-image"
+                />
                 <h3>Al Abraaj</h3>
-                <p>An elegant fragrance with rich undertones that leave a lasting impression of refinement.</p>
-                <p class="price">Rs.1999</p>
-                <a href="#" class="btn">Shop Now</a>
+                <p>
+                    An elegant fragrance with rich undertones that leave a lasting
+                    impression of refinement.
+                </p>
+                <p class="price">Rs.2250</p>
+                <a href="#" class="btn add-to-cart">Shop Now</a>
             </div>
         </div>
     </section>
@@ -55,15 +110,41 @@
     <section class="about" id="about">
         <div class="about-content">
             <h2>About Amaanah</h2>
-            <p>Amaanah by F&M represents the pinnacle of luxury fragrance craftsmanship. Our perfumes are meticulously created using the finest ingredients sourced from around the world, resulting in unique scents that embody elegance and distinction.</p>
-            <p>Each bottle is a testament to our commitment to quality and artistry, designed to elevate your personal fragrance journey.</p>
+            <p>
+                Amaanah by F&M represents the pinnacle of luxury fragrance
+                craftsmanship. Our perfumes are meticulously created using the finest
+                ingredients sourced from around the world, resulting in unique scents
+                that embody elegance and distinction.
+            </p>
+            <p>
+                Each bottle is a testament to our commitment to quality and artistry,
+                designed to elevate your personal fragrance journey.
+            </p>
         </div>
     </section>
 
-    <footer id="contact">
+    <!-- Contact Form Section -->
+    <section id="contact" class="contact-section" style="padding: 40px 20px; background: #f9f9f9;">
+        <h2>Contact Us</h2>
+        <form id="contact-form" style="max-width: 500px; margin: auto;">
+            <label for="name">Name</label><br />
+            <input type="text" id="name" name="user_name" required style="width: 100%; padding: 8px; margin-bottom: 10px;" /><br />
+
+            <label for="email">Email</label><br />
+            <input type="email" id="email" name="user_email" required style="width: 100%; padding: 8px; margin-bottom: 10px;" /><br />
+
+            <label for="message">Message</label><br />
+            <textarea id="message" name="message" required rows="5" style="width: 100%; padding: 8px; margin-bottom: 10px;"></textarea><br />
+
+            <button type="submit" class="btn" style="padding: 10px 20px;">Send</button>
+        </form>
+        <p id="form-status" style="text-align:center; margin-top: 10px;"></p>
+    </section>
+
+    <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="circular-logo.svg" alt="Amaanah by F&M Logo" class="logo-small">
+                <img src="images/circular-logo.svg" alt="Amaanah by F&M Logo" class="logo-small" />
             </div>
             <div class="footer-links">
                 <h4>Quick Links</h4>
@@ -89,5 +170,93 @@
             <p>&copy; 2025 Amaanah by F&M. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Simple cart logic
+        let cart = [];
+
+        function updateCartUI() {
+            const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById("cart-count").textContent = cartCount;
+
+            const cartItems = document.getElementById("cart-items");
+            cartItems.innerHTML = "";
+
+            let total = 0;
+            cart.forEach((item, idx) => {
+                total += item.price * item.qty;
+                const li = document.createElement("li");
+                li.innerHTML = `${item.name} x${item.qty} - Rs.${item.price * item.qty} <button onclick="removeFromCart(${idx})">Remove</button>`;
+                cartItems.appendChild(li);
+            });
+
+            document.getElementById("cart-total").textContent = "Total: Rs." + total;
+
+            // If cart is empty, show message
+            if (cart.length === 0) {
+                cartItems.innerHTML = "<li>Your cart is empty.</li>";
+                document.getElementById("cart-total").textContent = "";
+            }
+        }
+
+        function addToCart(name, price) {
+            const existing = cart.find((item) => item.name === name);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(idx) {
+            cart.splice(idx, 1);
+            updateCartUI();
+        }
+
+        function openCart() {
+            document.getElementById("cart-modal").style.display = "block";
+        }
+
+        function closeCart() {
+            document.getElementById("cart-modal").style.display = "none";
+        }
+
+        document.querySelectorAll(".add-to-cart").forEach((btn) => {
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                const product = btn.closest(".product");
+                addToCart(product.dataset.name, parseInt(product.dataset.price));
+            });
+        });
+
+        document.getElementById("cart-btn").addEventListener("click", openCart);
+
+        // Contact form submission using EmailJS
+        const contactForm = document.getElementById("contact-form");
+        const formStatus = document.getElementById("form-status");
+
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            formStatus.textContent = "Sending...";
+
+            emailjs
+                .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+                .then(
+                    function () {
+                        formStatus.style.color = "green";
+                        formStatus.textContent = "Message sent successfully!";
+                        contactForm.reset();
+                    },
+                    function (error) {
+                        formStatus.style.color = "red";
+                        formStatus.textContent =
+                            "Failed to send message. Please try again later.";
+                        console.error("EmailJS error:", error);
+                    }
+                );
+        });
+    </script>
 </body>
 </html>
